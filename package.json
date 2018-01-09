@@ -1,0 +1,24 @@
+{
+  "name": "orderWeb",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "angular4-social-login": "^1.1.1",
+    "body-parser": "^1.18.2",
+    "bootstrap": "^3.3.7",
+    "ejs": "^2.5.7",
+    "express": "^4.16.2",
+    "express-session": "^1.15.6",
+    "jquery": "^3.2.1",
+    "mongoose": "^4.13.2",
+    "ngx-bootstrap": "^2.0.0-rc.0",
+    "scrypt": "^6.0.3"
+  }
+}

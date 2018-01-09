@@ -1,0 +1,20 @@
+<div id="checkout" >
+  <div class="card mb-3">
+    <h3 class="card-header">Check Out List</h3>
+
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item" *ngFor = "let t of total_item">
+        <p>Food name: {{t.food_name}} </p>
+        <p>Quantity: {{t.quantity}} </p>
+        <p>Total Price: {{t.quantity * t.price}} </p>
+      </li>
+    </ul>
+    <div class="card-body">
+      <button *ngIf = "total_item.length !== 0" style="float: right;" class="btn btn-danger" (submit) = "place_order()">
+        <i class="fa fa-paper-plane" aria-hidden="true"></i> Submit</button>
+    </div>
+    <div class="card-footer text-muted">
+      Thank you for your interest!!! :)
+    </div>
+  </div>
+</div>
