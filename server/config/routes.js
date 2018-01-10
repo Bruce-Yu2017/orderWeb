@@ -22,8 +22,10 @@ module.exports = function(app){
     foods.get_foods(req, res);
   })
 
-  app.post("/social", function(req, res) {
-    mainroutes.social_login(req, res);
+  
+
+  app.post("/checkuser", function(req, res) {
+    mainroutes.check_user(req, res);
   })
 
     app.all("*",function(req,res){

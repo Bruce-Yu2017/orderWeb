@@ -28,12 +28,26 @@ export class HomeComponent implements OnInit, AfterViewInit {
     this.current_user = this._service.user;
     this.authService.authState.subscribe((user) => {
       this.user = user;
+
       if (this.user !== null) {
         this._service.social_login(this.user, (res) => {
+
+      console.log(this.user);
+      localStorage.social_user = JSON.stringify(user)
+      if(this.user !== null) {
+        this._service.check_user(this.user, (res) => {
+        if(res == "exist") {
+          console.log("success social login");
+        }
+        else {
+
           console.log(res);
-        })
+          this._router.navigate(["/update"]);
+        }
+      })
       }
-      console.log("login", this.user);
+      
+      this._service.social_user = user;
       this.loggedIn = (user != null);
     });
     this._service.retrieveAllFood((res) => {
@@ -58,14 +72,32 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   signInWithGoogle(): void {
     this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);
+
+    
+    
   }
 
   signInWithFB(): void {
     this.authService.signIn(FacebookLoginProvider.PROVIDER_ID);
+    this._service.check_user(this.user, (res) => {
+      if(res == "exist") {
+        console.log("success social login");
+      }
+      else {
+        console.log("need update");
+        this._router.navigate(["/update"]);
+      }
+    })
   }
 
   signOut(): void {
     this.authService.signOut();
+    this._service.retrieveAllFood((res) => {
+      res.map((ele)=>{
+        return ele.quantity = null;
+      })
+      this.all_foods = res;
+    })
   }
 
   create_order(food) {

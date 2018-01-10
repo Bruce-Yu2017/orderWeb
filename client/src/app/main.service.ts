@@ -1,14 +1,21 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { error } from 'selenium-webdriver';
+
 import { BehaviorSubject } from "rxjs";
+
+
 @Injectable()
 export class MainService {
   user;
+  social_user;
   data: BehaviorSubject<any[]> = new BehaviorSubject([]);
   constructor(private _http: Http) {
     if (localStorage.user != undefined) {
       this.user = JSON.parse(localStorage.user);
+    }
+    if (localStorage.social_user != undefined) {
+      this.social_user = JSON.parse(localStorage.social_user);
     }
   }
 
@@ -98,13 +105,7 @@ export class MainService {
       )
   };
 
-  social_login(social_user, callback) {
-    this._http.post("/social", social_user).subscribe(
-      (res) => {
-        console.log("social login: ", res);
-        callback(res.json());
-      })
-  }
+  
 
   retrieveAllFood(callback) {
     this._http.get("/foods").subscribe((res) => {
@@ -115,6 +116,13 @@ export class MainService {
   place_order(order, callback) {
     this._http.post("/orders", order).subscribe((res) => {
       callback(res.json())
+    })
+  }
+
+  check_user(social_user, callback) {
+    console.log(social_user);
+    this._http.post("/checkuser", social_user).subscribe((res) => {
+      callback(res.json());
     })
   }
 

@@ -58,6 +58,7 @@
       </button>
     </div>
 
+
     <div *ngIf="user">
       <img style="width: 80px;height: 80px;" class="card-img-top img-responsive photo" src="{{ user.photoUrl }}">
       <div class="card-block">
@@ -68,6 +69,15 @@
         <button class="btn btn-danger" (click)="signOut()">Sign out</button>
       </div>
     </div>
+
+  </div>
+</nav>
+<div class="jumbotron">
+  <div class="card-block">
+    <i (click)="signInWithGoogle()" class="fa fa-google fa-4x" aria-hidden="true"></i>
+    <i (click)="signInWithFB()" class="fa fa-facebook-official fa-4x" aria-hidden="true"></i>
+  </div>
+
 
     <div class="container">
       <h1 style="color:antiquewhite;" class="display-3 animated zoomIn">Ready to order ?</h1>

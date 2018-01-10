@@ -14,6 +14,7 @@ import { NewMenuComponent } from './new-menu/new-menu.component';
 import { NewUserComponent } from './new-user/new-user.component';
 import { SocialLoginModule, AuthServiceConfig } from "angular4-social-login";
 import { GoogleLoginProvider, FacebookLoginProvider } from "angular4-social-login";
+import { UpdateUserComponent } from './update-user/update-user.component';
 
 import { AgmCoreModule } from '@agm/core';
 
@@ -35,7 +36,8 @@ let config = new AuthServiceConfig([
     HomeComponent,
     CheckoutComponent,
     NewMenuComponent,
-    NewUserComponent
+    NewUserComponent,
+    UpdateUserComponent
   ],
   imports: [
     BrowserModule,
