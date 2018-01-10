@@ -15,6 +15,8 @@ import { NewUserComponent } from './new-user/new-user.component';
 import { SocialLoginModule, AuthServiceConfig } from "angular4-social-login";
 import { GoogleLoginProvider, FacebookLoginProvider } from "angular4-social-login";
 
+import { AgmCoreModule } from '@agm/core';
+
 let config = new AuthServiceConfig([
   {
     id: GoogleLoginProvider.PROVIDER_ID,
@@ -40,7 +42,10 @@ let config = new AuthServiceConfig([
     AppRoutingModule,
     FormsModule,
     HttpModule,
-    SocialLoginModule.initialize(config)
+    SocialLoginModule.initialize(config),
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCtp-QzkIR4QSrXNJMEHRX9Wn_d0vBSmjQ';
+    })
   ],
   providers: [MainService],
   bootstrap: [AppComponent]

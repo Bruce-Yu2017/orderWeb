@@ -7,11 +7,32 @@
   padding-top: 14px;
 }
 
-/*.al_log {
-  padding-left: 15px;
-  padding-top: 14px;
-}*/
+
+
+body {
+  background: url(/assets/images/pexels-photo-262918.jpeg) no-repeat center center;
+  -webkit-background-attachment: fixed;
+  background-attachment: fixed;
+  background-size: cover;
+  padding: 0;
+  position: relative;
+  height: 1000px;
+}
+#form {
+  background-color: #5555;
+  color: black;
+  width: 500px; 
+}
+
+#loginform {
+  width: 440px;
+}
+
 
 .aler_log {
   width: 100%;
+}
+
+#login {
+  float: right;
 }

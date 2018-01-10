@@ -14,120 +14,140 @@
     <div class="container">
       <a class="navbar-brand" [routerLink]="['/']">Order Website</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02"
-      aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarColor02">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="#">Features</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Pricing</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">About</a>
-        </li>
-      </ul>
-      <a [routerLink]="['/new_menu']" >
-        <button class="btn btn-secondary my-2 my-sm-0" type="submit" *ngIf = "current_user != undefined && current_user.user_level == 9"><i class="fa fa-cutlery fa-1x icon" aria-hidden="true"></i>Add New Munu </button>
-      </a>
-      <a [routerLink]="['/new_user']" >
-        <button class="btn btn-secondary my-2 my-sm-0" type="submit" *ngIf = "current_user != undefined && current_user.user_level == 9"><i class="fa fa-user-o fa-lg icon" aria-hidden="true"></i>Add New User </button>
-      </a>
-      <a [routerLink]="['/login']" >
-        <button class="btn btn-secondary my-2 my-sm-0" type="submit" *ngIf = "current_user == undefined"><i class="fa fa-sign-in" aria-hidden="true"></i> Log in </button>
-      </a>
-      <button *ngIf="current_user != undefined" class="btn btn-danger" (click) = "logout()"><i class="fa fa-sign-out" aria-hidden="true"></i> Log out</button>
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarColor02">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Features</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Pricing</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+        </ul>
+        <a [routerLink]="['/new_menu']">
+          <button class="btn btn-secondary my-2 my-sm-0" type="submit" *ngIf="current_user != undefined && current_user.user_level == 9">
+            <i class="fa fa-cutlery fa-1x icon" aria-hidden="true"></i>Add New Munu </button>
+        </a>
+        <a [routerLink]="['/new_user']">
+          <button class="btn btn-secondary my-2 my-sm-0" type="submit" *ngIf="current_user != undefined && current_user.user_level == 9">
+            <i class="fa fa-user-o fa-lg icon" aria-hidden="true"></i>Add New User </button>
+        </a>
+        <a [routerLink]="['/login']">
+          <button class="btn btn-secondary my-2 my-sm-0" type="submit" *ngIf="current_user == undefined">
+            <i class="fa fa-sign-in" aria-hidden="true"></i> Log in </button>
+        </a>
+        <button *ngIf="current_user != undefined" class="btn btn-danger" (click)="logout()">
+          <i class="fa fa-sign-out" aria-hidden="true"></i> Log out</button>
 
+      </div>
+
+    </div>
+  </nav>
+  <div class="jumbotron">
+    <div class="card-block">
+      <button class="btn btn-social-icon btn-google" (click)="signInWithGoogle()">
+        <span class="fa fa-google"></span>
+      </button>
+      <button class="btn btn-social-icon btn-facebook" (click)="signInWithFB()">
+        <span class="fa fa-facebook"></span>
+      </button>
+    </div>
+
+    <div *ngIf="user">
+      <img style="width: 80px;height: 80px;" class="card-img-top img-responsive photo" src="{{ user.photoUrl }}">
+      <div class="card-block">
+        <h4 class="card-title">{{ user.name }}</h4>
+        <p class="card-text">{{ user.email }}</p>
+      </div>
+      <div class="card-block">
+        <button class="btn btn-danger" (click)="signOut()">Sign out</button>
+      </div>
+    </div>
+
+    <div class="container">
+      <h1 style="color:antiquewhite;" class="display-3 animated zoomIn">Ready to order ?</h1>
     </div>
 
   </div>
-</nav>
-<div class="jumbotron">
-  <div class="card-block">
-    <button class="btn btn-social-icon btn-google" (click)="signInWithGoogle()"><span class="fa fa-google"></span></button>
-    <button class="btn btn-social-icon btn-facebook" (click)="signInWithFB()"><span class="fa fa-facebook"></span></button>
-  </div>
 
-  <div class="card-block"></div>
-  <img style="width: 80px;height: 80px;" class="card-img-top img-responsive photo" src="{{ user.photoUrl }}">
-  <div class="card-block">
-    <h4 class="card-title">{{ user.name }}</h4>
-    <p class="card-text">{{ user.email }}</p>
-  </div>
-  <div class="card-block">
-    <button class="btn btn-danger" (click)="signOut()">Sign out</button>
-  </div>
+  <div class="container">
+    <div class="checkout">
+      <div class="card mb-3" id="sideCard">
+        <h3 class="card-header">Food Truck Info:</h3>
+        <div class="card-body">
+          <h5 class="card-title">Food Name:</h5>
+        </div>
+        <img style="height: 200px; width: 300px; display: block;" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22318%22%20height%3D%22180%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20318%20180%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_158bd1d28ef%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A16pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_158bd1d28ef%22%3E%3Crect%20width%3D%22318%22%20height%3D%22180%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22129.359375%22%20y%3D%2297.35%22%3EImage%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E"
+          alt="Card image">
+        <div class="card-body">
+          <p class="card-text">Food truck description</p>
+        </div>
+        <h3>Browe food from this food truck</h3>
+        <ul class="list-group list-group-flush">
+          <li *ngFor="let a of all_foods" class="list-group-item">
+            <img style="width: 100px;height: 100px;" src="{{a.image}}">
+            <h3>Food name: {{a.food_name}}</h3>
+            <p>Description: {{a.description}}</p>
+            <p>Price: {{a.price}}</p>
+            <form (submit)="create_order(a)" #addfood="ngForm">
+              <label>Quantity:</label>
+              <input type="number" [(ngModel)]="a.quantity" required min="1" name="quantity" #quantity="ngModel">
 
 
-  <h1 class="display-3">Hello, world!</h1>
-  <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-  <hr class="my-4">
-  <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-  <p class="lead">
-    <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-  </p>
-</div>
+              <button class="btn btn-success" [disabled]="!addfood.valid">Add to cart</button>
 
-<div class="container">
-  <div class="checkout">
-    <div class="card mb-3" id="sideCard">
-      <h3 class="card-header">Food Truck Info:</h3>
-      <div class="card-body">
-        <h5 class="card-title">Food Name:</h5>
-      </div>
-      <img style="height: 200px; width: 300px; display: block;" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22318%22%20height%3D%22180%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20318%20180%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_158bd1d28ef%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A16pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_158bd1d28ef%22%3E%3Crect%20width%3D%22318%22%20height%3D%22180%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22129.359375%22%20y%3D%2297.35%22%3EImage%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E"
-      alt="Card image">
-      <div class="card-body">
-        <p class="card-text">Food truck description</p>
-      </div>
-      <h3>Browe food from this food truck</h3>
-      <ul class="list-group list-group-flush">
-        <li *ngFor="let a of all_foods" class="list-group-item"><img style="width: 100px;height: 100px;" src="{{a.image}}"> <h3>Food name: {{a.food_name}}</h3> <p>Description: {{a.description}}</p> <p>Price: {{a.price}}</p>
-        <form (submit) = "create_order(a)" #addfood = "ngForm">
-          <label>Quantity:</label>
-          <input type="number" [(ngModel)] = "a.quantity" required min="1" name="quantity" #quantity = "ngModel">
-          
-        
-          <button class="btn btn-success" [disabled] = "!addfood.valid">Add to cart</button>
-          
-        </form> 
-        <p>Total price: {{a.quantity * a.price}}</p>
-        </li>
-        
-      </ul>
-      <!-- <div class="card-body">
+            </form>
+            <p>Total price: {{a.quantity * a.price}}</p>
+          </li>
+
+        </ul>
+        <!-- <div class="card-body">
         <a href="#" class="card-link">Card link</a>
         <a href="#" class="card-link">Another link</a>
       </div> -->
-      <div class="card-footer text-muted">
-        2 days ago
+        <div class="card-footer text-muted">
+          2 days ago
+        </div>
       </div>
     </div>
+    <app-checkout class="checkout"></app-checkout>
+
   </div>
-  <app-checkout class="checkout" ></app-checkout>
-  
-</div>
 
 
 
-<footer id="myFooter">
-  <div class="social-networks">
-    <a href="#" class="twitter">
-      <i class="fa fa-twitter"></i>
-    </a>
-    <a href="#" class="facebook">
-      <i class="fa fa-facebook"></i>
-    </a>
-    <a href="#" class="google">
-      <i class="fa fa-github"></i>
-    </a>
-  </div>
-  <div class="footer-copyright">
-    <p>© 2017 Kevin Ke </p>
-  </div>
-</footer>
+  <footer id="myFooter">
+
+    <div class="container">
+      <agm-map id="mapCanvas" [latitude]="lat" [longitude]="lng">
+        <agm-marker
+         [latitude]="lat"
+         [longitude]="lng"
+         (mapClick)="onChoseLocation($event)">
+        </agm-marker>
+      </agm-map>
+    </div>
+
+    <div class="social-networks">
+      <a href="#" class="twitter">
+        <i class="fa fa-twitter"></i>
+      </a>
+      <a href="#" class="facebook">
+        <i class="fa fa-facebook"></i>
+      </a>
+      <a href="#" class="google">
+        <i class="fa fa-github"></i>
+      </a>
+    </div>
+    <div class="footer-copyright">
+      <p>© 2017 Kevin Ke </p>
+    </div>
+  </footer>
 
 
 

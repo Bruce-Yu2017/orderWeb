@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { error } from 'selenium-webdriver';
-import {BehaviorSubject} from "Rxjs";
+import { BehaviorSubject } from "rxjs";
 @Injectable()
 export class MainService {
   user;
