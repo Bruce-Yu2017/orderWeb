@@ -1,10 +1,52 @@
 #sideCard {
     width: 1000px;
+    font-size: 25px;
+    opacity: 0.9;
+    font-weight: bold;
+    color: #000000;
 }
 
 .container {
     max-width: 1600px;
 }
+
+.jumbotron {
+    background: url(/assets/images/pexels-photo-101533.jpeg) no-repeat center center;
+    -webkit-background-attachment: fixed;
+    background-attachment: fixed;
+    background-size: cover;
+    padding: 0;
+    position: relative;
+    height: 500px;
+}
+
+
+/* Food menu display background color */
+.card {
+    background-color: #555;
+}
+
+
+/* Check out side menu */
+.mb-3 {
+    margin-left: 2px; 
+}
+
+
+img {
+    vertical-align: middle;
+    margin: 10px;
+    border: 1px solid;
+    border-radius: 8px;
+}
+
+/* Google Map sytle */
+
+agm-map {
+    height: 200px;
+    
+  }
+
 
 
 /* Footer section  */
@@ -12,13 +54,6 @@
     background-color: #182c39;
     color: white;
     padding-top: 20px;
-}
-
-#map-container {
-    height: 200px;
-    width: 100%;
-    margin-top: 30px;
-    margin-bottom: 10px;
 }
 
 #myFooter .row {
