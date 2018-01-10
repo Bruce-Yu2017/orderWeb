@@ -89,9 +89,29 @@ module.exports = {
     })
   },
 
-  social_login: function(req, res) {
-    console.log(req.body);
-    res.json("good");
+  check_user: function(req, res) {
+    // console.log(req.body);
+    if(req.body.email == null) {
+      res.json("require email");
+      
+    }
+    else {
+      User.findOne({email: req.body.email}, function(err, user) {
+        if(err) {
+          console.log("err from check user: ", err);
+        }
+        else {
+          console.log("from check user: ", user);
+          if(user == null) {
+            res.json("update require");
+          }
+          else {
+            res.json("exist");
+          }
+        }
+      })
+    }
+    
   }
 
 
